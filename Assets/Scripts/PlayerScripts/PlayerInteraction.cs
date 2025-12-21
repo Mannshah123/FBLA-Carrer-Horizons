@@ -8,7 +8,9 @@ public class PlayerInteraction : MonoBehaviour
 
      
     public bool InteractedWithNPC;
-    public GameObject DescriptionMenu;
+
+    public GameObject interactedNPC;
+    public GameObject DescriptionMenu; //access from the npc script
     public bool isDescriptionMenuActive;
     void Update(){
 
@@ -16,6 +18,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             if(!isDescriptionMenuActive){
                 Debug.Log("E Pressed");
+                DescriptionMenu = interactedNPC.GetComponent<NPCMedicalScript>().symptomDisplayUI;
             DescriptionMenu.SetActive(true);
             isDescriptionMenuActive = true;
             }
@@ -32,6 +35,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (other.CompareTag("NPC"))
         {
+            interactedNPC = other.gameObject;
            Debug.Log("Interacted");
               InteractedWithNPC = true;
         }

@@ -27,7 +27,7 @@ public class NPCMedicalScript : MonoBehaviour
         Cough = currentSymptoms.cough;
 
         //ui
-
+        
         
     }
 
