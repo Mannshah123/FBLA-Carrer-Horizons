@@ -10,6 +10,10 @@ public class RandomSymptoms : MonoBehaviour
     public GameObject newNPC;
     public GameObject panel;
     public GameObject newPanel;
+    public GameObject newPanel_fever;
+    public GameObject newPanel_dizziness;
+    public GameObject newPanel_musclepain;
+    public GameObject newPanel_cough;
     void Start()
     {
         
@@ -40,6 +44,18 @@ public class RandomSymptoms : MonoBehaviour
         
         newNPC.GetComponent<NPCMedicalScript>().symptomDisplayUI = newPanel;
        
+        newPanel_fever = newPanel.transform.Find("Fever").gameObject;
+        
+        newPanel_dizziness = newPanel.transform.Find("Dizziness").gameObject;
+        
+        newPanel_musclepain = newPanel.transform.Find("Muscle Pain").gameObject;
+
+        newPanel_cough = newPanel.transform.Find("Cough").gameObject;
+
+        newNPC.GetComponent<NPCMedicalScript>().symptomDisplayUI_fever = newPanel_fever;
+        newNPC.GetComponent<NPCMedicalScript>().symptomDisplayUI_dizziness = newPanel_dizziness;
+        newNPC.GetComponent<NPCMedicalScript>().symptomDisplayUI_musclepain = newPanel_musclepain;
+        newNPC.GetComponent<NPCMedicalScript>().symptomDisplayUI_cough = newPanel_cough;
         }
        
     }
