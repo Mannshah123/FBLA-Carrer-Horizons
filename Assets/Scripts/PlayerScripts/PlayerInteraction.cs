@@ -13,7 +13,8 @@ public class PlayerInteraction : MonoBehaviour
 
     public NPCMedicalScript npcMedicalScript;
 
-    
+    public GameObject RecipeMenu;
+    public bool RecipeIteracted;
     void Update(){
 
         if (Input.GetKeyDown(KeyCode.E) && InteractedWithNPC)
@@ -28,6 +29,16 @@ public class PlayerInteraction : MonoBehaviour
                 isDescriptionMenuActive = false;
             }
             // Trigger dialogue or interaction here
+        }
+
+        if(Input.GetKeyDown(KeyCode.E) && RecipeIteracted){
+            if(!RecipeMenu.activeSelf){
+                Debug.Log("E Pressed on Recipe");
+                RecipeMenu.SetActive(true);
+            }
+            else{
+                RecipeMenu.SetActive(false);
+            }
         }
         
     }
@@ -67,6 +78,7 @@ public class PlayerInteraction : MonoBehaviour
         // }
         if(other.CompareTag("Recipe")){
             Debug.Log("Interacted with Recipe");
+            RecipeIteracted = true;
         }
     }
 
