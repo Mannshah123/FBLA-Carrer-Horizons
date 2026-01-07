@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f853b269b9d0945da8128ffd27d1e68b, type: 3}
-  m_Name: TotalRecovery Formula
+  m_Name: TotalRecovery
   m_EditorClassIdentifier: Assembly-CSharp::Symptons
   fever: 1
   dizziness: 1
