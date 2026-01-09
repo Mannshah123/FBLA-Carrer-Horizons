@@ -34,7 +34,7 @@ public class RecipeSorterScript : MonoBehaviour
         {
             if (totalSymptoms > 0)
             {
-                textTransform.GetComponent<TMP_Text>().text += "     &     ";
+                textTransform.GetComponent<TMP_Text>().text += "                          &                            ";
             }
 
             textTransform.GetComponent<TMP_Text>().text += "Dizziness";
@@ -49,7 +49,7 @@ public class RecipeSorterScript : MonoBehaviour
             }
             else if (totalSymptoms > 0)
             {
-                textTransform.GetComponent<TMP_Text>().text += "     &     ";
+                textTransform.GetComponent<TMP_Text>().text += "                          &                            ";
                 textTransform.GetComponent<TMP_Text>().text += "Muscle Pain";
             }
             else
@@ -63,7 +63,7 @@ public class RecipeSorterScript : MonoBehaviour
         {
             if (totalSymptoms > 2)
             {
-                textTransform.GetComponent<TMP_Text>().text += "     &     ";
+                textTransform.GetComponent<TMP_Text>().text += "                          &                            ";
                 textTransform.GetComponent<TMP_Text>().text += "Cough";
             }
             else if (totalSymptoms > 1)
@@ -72,7 +72,7 @@ public class RecipeSorterScript : MonoBehaviour
             }
             else if (totalSymptoms > 0)
             {
-                textTransform.GetComponent<TMP_Text>().text += "     &     ";
+                textTransform.GetComponent<TMP_Text>().text += "                          &                            ";
                 textTransform.GetComponent<TMP_Text>().text += "Cough";
             }
             else
@@ -98,7 +98,7 @@ public class RecipeSorterScript : MonoBehaviour
 
             if(medicineSymptoms[j].dizziness){
                 if(totalSymptoms > 0 ){
-                    textTransform.GetComponent<TMP_Text>().text += "     &     ";
+                    textTransform.GetComponent<TMP_Text>().text += "                          &                            ";
                 }
 
                 textTransform.GetComponent<TMP_Text>().text += "Dizziness";
@@ -111,7 +111,7 @@ public class RecipeSorterScript : MonoBehaviour
                     textTransform.GetComponent<TMP_Text>().text += "\nMuscle Pain";
                         totalSymptoms++;
                 }else if(totalSymptoms > 0){
-                        textTransform.GetComponent<TMP_Text>().text += "     &     ";
+                        textTransform.GetComponent<TMP_Text>().text += "                          &                            ";
                     textTransform.GetComponent<TMP_Text>().text += "Muscle Pain";
                     totalSymptoms++;
                 }else{
@@ -122,12 +122,12 @@ public class RecipeSorterScript : MonoBehaviour
             }
             if(medicineSymptoms[j].cough){
                 if(totalSymptoms > 2){
-                     textTransform.GetComponent<TMP_Text>().text += "     &     ";
+                     textTransform.GetComponent<TMP_Text>().text += "                          &                            ";
                      textTransform.GetComponent<TMP_Text>().text += "Cough";
                 }else if(totalSymptoms >1){
                     textTransform.GetComponent<TMP_Text>().text += "\nCough";
                 }else if(totalSymptoms >0){
-                    textTransform.GetComponent<TMP_Text>().text += "     &     ";
+                    textTransform.GetComponent<TMP_Text>().text += "                          &                            ";
                     textTransform.GetComponent<TMP_Text>().text += "Cough";
                 }else{
                 textTransform.GetComponent<TMP_Text>().text += "Cough\n";
