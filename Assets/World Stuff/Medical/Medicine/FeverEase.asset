@@ -16,3 +16,4 @@ MonoBehaviour:
   dizziness: 0
   MusclePain: 0
   cough: 0
+  description: This Antidote is used for the treatment of Fever.

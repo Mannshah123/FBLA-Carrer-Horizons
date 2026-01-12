@@ -16,3 +16,4 @@ MonoBehaviour:
   dizziness: 1
   MusclePain: 1
   cough: 0
+  description: This Antidote is used for the treatment of  Dizziness and Muscle Pain.

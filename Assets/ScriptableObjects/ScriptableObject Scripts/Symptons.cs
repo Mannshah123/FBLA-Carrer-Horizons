@@ -7,4 +7,6 @@ public class Symptons : ScriptableObject
     public bool dizziness;
     public bool MusclePain;
     public bool cough;
+
+    public string description;
 }

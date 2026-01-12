@@ -15,6 +15,13 @@ public class PlayerInteraction : MonoBehaviour
 
     public GameObject RecipeMenu;
     public bool RecipeIteracted;
+
+    public GameObject syringeRecipeMenu;
+    public bool syringeRecipeInteracted;
+    
+
+    public GameObject mixedRecipeMenu;
+    public bool mixedRecipeInteracted;
     void Update(){
 
         if (Input.GetKeyDown(KeyCode.E) && InteractedWithNPC)
@@ -38,6 +45,25 @@ public class PlayerInteraction : MonoBehaviour
             }
             else{
                 RecipeMenu.SetActive(false);
+            }
+        }
+        if(Input.GetKeyDown(KeyCode.E) && syringeRecipeInteracted){
+            if(!syringeRecipeMenu.activeSelf){
+                Debug.Log("E Pressed on Syringe Recipe");
+                syringeRecipeMenu.SetActive(true);
+            }
+            else{
+                syringeRecipeMenu.SetActive(false);
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.E) && mixedRecipeInteracted){
+            if(!mixedRecipeMenu.activeSelf){
+                Debug.Log("E Pressed on Mixed Recipe");
+                mixedRecipeMenu.SetActive(true);
+            }
+            else{
+                mixedRecipeMenu.SetActive(false);
             }
         }
         
@@ -80,16 +106,43 @@ public class PlayerInteraction : MonoBehaviour
             Debug.Log("Interacted with Recipe");
             RecipeIteracted = true;
         }
+
+
+        if(other.CompareTag("SyringeRecipe")){
+            Debug.Log("Interacted with Syringe Recipe");
+            syringeRecipeInteracted = true;
+        }
+
+        if(other.CompareTag("MixRecipe")){
+            Debug.Log("Interacted with Mixed Recipe");
+            mixedRecipeInteracted = true;
+        }
     }
 
     public void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("NPC"))
         {
-           Debug.Log("Stopped Interacting");
+          
               InteractedWithNPC = false;
               DescriptionMenu.SetActive(false);
               isDescriptionMenuActive = false;
+        }
+
+        if(other.CompareTag("Recipe")){
+            
+            RecipeIteracted = false;
+            RecipeMenu.SetActive(false);
+        }
+        if(other.CompareTag("SyringeRecipe")){
+            
+            syringeRecipeInteracted = false;
+            syringeRecipeMenu.SetActive(false);
+        }
+        if(other.CompareTag("MixRecipe")){
+            
+            mixedRecipeInteracted = false;
+            mixedRecipeMenu.SetActive(false);
         }
 
     }

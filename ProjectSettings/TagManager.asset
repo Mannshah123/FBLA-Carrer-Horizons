@@ -6,6 +6,8 @@ TagManager:
   tags:
   - NPC
   - Recipe
+  - SyringeRecipe
+  - MixRecipe
   layers:
   - Default
   - TransparentFX
