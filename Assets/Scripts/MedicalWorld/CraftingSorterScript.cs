@@ -30,7 +30,9 @@ public class CraftingSorterScript : MonoBehaviour
 
     //inventory
     public GameObject inventoryPanel;
+    public bool isInventoryEmpty = true;
 
+    public Symptons craftedSymptom;
     public void SetAntidote()
     {
        
@@ -80,7 +82,35 @@ public class CraftingSorterScript : MonoBehaviour
         }
     }
 
+    public void SetInventoryItem(){
+    if(isInventoryEmpty){
+        Debug.Log("Adding item to inventory");
+        Transform parentTransform = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.transform.parent;
+       Transform antidoteNameTransform = parentTransform.Find("AntidoteName");
+         string buttonName = antidoteNameTransform.GetComponent<TMP_Text>().text;
+        for(int i = 0; i < allSymptoms.Length; i++)
+        {
+           if (allSymptoms[i] != null && buttonName == allSymptoms[i].name)
+            {
+            craftedSymptom = allSymptoms[i];
+
+            GameObject inventoryItem = inventoryPanel.transform.Find("Item").gameObject;
+            
+            // inventoryItem.SetActive(true);
+            inventoryItem.GetComponent<Image>().color = Color.red;
+
+             }
+         }
+
+        isInventoryEmpty = false;
+
+     }else{
+        Debug.Log("Inventory is full");
+     }
 
 
     
+    }
+
+
 }

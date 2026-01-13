@@ -22,6 +22,13 @@ public class NPCMedicalScript : MonoBehaviour
     public GameObject symptomDisplayUI_musclepain;
     public GameObject symptomDisplayUI_cough;
     
+
+    public CraftingSorterScript craftingSorterScript;
+
+    void Awake()
+    {
+        craftingSorterScript = GameObject.Find("CraftingButtonManager").GetComponent<CraftingSorterScript>();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,6 +58,37 @@ public class NPCMedicalScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetMouseButtonDown(0))
+        {
+            DetectNPCClick();
+        }
+
+
+        if(isTreated)
+        {
+            Destroy(gameObject);
+        }
     }
+
+
+    void DetectNPCClick()
+{
+    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+
+    if (hit.collider != null && hit.collider.gameObject == gameObject)
+    {
+        Debug.Log("NPC clicked: " + gameObject.name);
+        //logic
+        if(craftingSorterScript.craftedSymptom == currentSymptoms)
+        {
+            Debug.Log("NPC Treated Successfully!");
+            isTreated = true;
+        }
+        else
+        {
+           
+        }
+    }
+}
 }
