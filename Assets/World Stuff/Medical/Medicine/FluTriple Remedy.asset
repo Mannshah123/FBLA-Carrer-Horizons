@@ -18,3 +18,4 @@ MonoBehaviour:
   cough: 1
   description: This Antidote is used for the treatment of Fever, Muscle Pain and
     Cough.
+  icon: {fileID: -1174273171309125008, guid: 8127abf23300040939972bd12f24417d, type: 3}

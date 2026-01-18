@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+
 
 [CreateAssetMenu(fileName = "New Symptons", menuName = "ScriptableObjects/Symptons")]
 public class Symptons : ScriptableObject
@@ -9,4 +11,6 @@ public class Symptons : ScriptableObject
     public bool cough;
 
     public string description;
+
+    public Sprite icon;
 }

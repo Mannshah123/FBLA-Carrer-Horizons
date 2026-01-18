@@ -97,7 +97,7 @@ public class CraftingSorterScript : MonoBehaviour
             GameObject inventoryItem = inventoryPanel.transform.Find("Item").gameObject;
             
             // inventoryItem.SetActive(true);
-            inventoryItem.GetComponent<Image>().color = Color.red;
+            inventoryItem.GetComponent<Image>().sprite = craftedSymptom.icon;
 
              }
          }

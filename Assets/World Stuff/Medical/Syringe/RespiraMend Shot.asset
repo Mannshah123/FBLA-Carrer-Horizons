@@ -17,3 +17,4 @@ MonoBehaviour:
   MusclePain: 1
   cough: 1
   description: This Antidote is used for the treatment of Muscle Pain and Cough
+  icon: {fileID: 3213357103374994396, guid: 8127abf23300040939972bd12f24417d, type: 3}

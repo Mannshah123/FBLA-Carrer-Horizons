@@ -17,3 +17,4 @@ MonoBehaviour:
   MusclePain: 0
   cough: 1
   description: This Antidote is used for the treatment of Dizziness and Cough.
+  icon: {fileID: -1741262504703045171, guid: 8127abf23300040939972bd12f24417d, type: 3}
