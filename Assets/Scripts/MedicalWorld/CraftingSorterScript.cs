@@ -14,6 +14,7 @@ public class CraftingSorterScript : MonoBehaviour
     public GameObject antidoteImage;
 
     public GameObject antidoteButton;
+    public GameObject antidoteBack;
 
 
     //syringe
@@ -22,11 +23,15 @@ public class CraftingSorterScript : MonoBehaviour
     public GameObject syringeImage;
     public GameObject syringeButton;
 
+    public GameObject syringeBack;
+
     //mix
     public GameObject mixName;
     public GameObject mixDescription;
     public GameObject mixImage;
     public GameObject mixButton;
+
+    public GameObject mixBack;
 
     //inventory
     public GameObject inventoryPanel;
@@ -49,7 +54,9 @@ public class CraftingSorterScript : MonoBehaviour
                 antidoteDescription.SetActive(true);
                 antidoteImage.SetActive(true);
                 antidoteButton.SetActive(true);
+                antidoteBack.SetActive(true);
 
+                antidoteImage.GetComponent<Image>().sprite = allSymptoms[i].icon;
                 antidoteName.GetComponent<TMP_Text>().text = allSymptoms[i].name;
                 antidoteDescription.GetComponent<TMP_Text>().text = allSymptoms[i].description;
             }
@@ -60,7 +67,9 @@ public class CraftingSorterScript : MonoBehaviour
                 mixDescription.SetActive(true);
                 mixImage.SetActive(true);
                 mixButton.SetActive(true);
+                mixBack.SetActive(true);
 
+                mixImage.GetComponent<Image>().sprite = allSymptoms[i].icon;
                 mixName.GetComponent<TMP_Text>().text = allSymptoms[i].name;
                 mixDescription.GetComponent<TMP_Text>().text = allSymptoms[i].description;
             }
@@ -71,7 +80,9 @@ public class CraftingSorterScript : MonoBehaviour
                 syringeDescription.SetActive(true);
                 syringeImage.SetActive(true);
                 syringeButton.SetActive(true);
-
+                syringeBack.SetActive(true);
+                
+                syringeImage.GetComponent<Image>().sprite = allSymptoms[i].icon;
                 syringeName.GetComponent<TMP_Text>().text = allSymptoms[i].name;
                 syringeDescription.GetComponent<TMP_Text>().text = allSymptoms[i].description;
             }
