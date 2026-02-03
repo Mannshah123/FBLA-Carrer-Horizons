@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 900070074971984180}
   - component: {fileID: 501914616318360978}
   - component: {fileID: 7589666894454199316}
+  - component: {fileID: 4671366589441803173}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -117,6 +118,8 @@ MonoBehaviour:
   symptomDisplayUI_musclepain: {fileID: 0}
   symptomDisplayUI_cough: {fileID: 0}
   craftingSorterScript: {fileID: 0}
+  animotors:
+  - {fileID: 0}
 --- !u!70 &7589666894454199316
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -154,6 +157,28 @@ CapsuleCollider2D:
   m_Offset: {x: 0.08391428, y: 0.0734247}
   m_Size: {x: 2.636322, y: 2.6573002}
   m_Direction: 0
+--- !u!95 &4671366589441803173
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293125751689060421}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5319489190249161922
 GameObject:
   m_ObjectHideFlags: 0

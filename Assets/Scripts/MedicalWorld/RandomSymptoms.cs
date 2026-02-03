@@ -65,15 +65,15 @@ public class RandomSymptoms : MonoBehaviour
        private IEnumerator MoveNPC(GameObject npc){
             
              Vector3 targetPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-    targetPosition.z = npc.transform.position.z; 
-    while (Vector2.Distance(npc.transform.position, targetPosition) > 0.1f)
-    {
+             targetPosition.z = npc.transform.position.z; 
+            while (Vector2.Distance(npc.transform.position, targetPosition) > 0.1f)
+             {
        
-        npc.transform.position = Vector2.MoveTowards(npc.transform.position, targetPosition, Time.deltaTime * 2f); // Adjust speed as needed
-        yield return null; 
-    }
+                npc.transform.position = Vector2.MoveTowards(npc.transform.position, targetPosition, Time.deltaTime * 3f); // Adjust speed here
+               yield return null; 
+             }
 
-    Debug.Log("NPC reached the middle of the screen!");
+             Debug.Log("NPC reached the middle of the screen!");
        }
     
 }

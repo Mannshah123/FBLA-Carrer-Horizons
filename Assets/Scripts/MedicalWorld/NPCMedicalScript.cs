@@ -25,6 +25,11 @@ public class NPCMedicalScript : MonoBehaviour
 
     public CraftingSorterScript craftingSorterScript;
 
+
+
+    //Animators
+    public Animator[] animotors;
+
     void Awake()
     {
         craftingSorterScript = GameObject.Find("CraftingButtonManager").GetComponent<CraftingSorterScript>();
