@@ -1,5 +1,6 @@
 using UnityEngine;
-
+using System.Collections;
+using System.Collections.Generic;
 public class RandomSymptoms : MonoBehaviour
 {
     public Symptons[] symptons;
@@ -56,7 +57,23 @@ public class RandomSymptoms : MonoBehaviour
         newNPC.GetComponent<NPCMedicalScript>().symptomDisplayUI_dizziness = newPanel_dizziness;
         newNPC.GetComponent<NPCMedicalScript>().symptomDisplayUI_musclepain = newPanel_musclepain;
         newNPC.GetComponent<NPCMedicalScript>().symptomDisplayUI_cough = newPanel_cough;
+
+        StartCoroutine(MoveNPC(newNPC));
         }
-       
+
     }
+       private IEnumerator MoveNPC(GameObject npc){
+            
+             Vector3 targetPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+    targetPosition.z = npc.transform.position.z; 
+    while (Vector2.Distance(npc.transform.position, targetPosition) > 0.1f)
+    {
+       
+        npc.transform.position = Vector2.MoveTowards(npc.transform.position, targetPosition, Time.deltaTime * 2f); // Adjust speed as needed
+        yield return null; 
+    }
+
+    Debug.Log("NPC reached the middle of the screen!");
+       }
+    
 }
