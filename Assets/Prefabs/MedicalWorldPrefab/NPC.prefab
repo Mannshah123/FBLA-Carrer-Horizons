@@ -118,8 +118,14 @@ MonoBehaviour:
   symptomDisplayUI_musclepain: {fileID: 0}
   symptomDisplayUI_cough: {fileID: 0}
   craftingSorterScript: {fileID: 0}
-  animotors:
-  - {fileID: 0}
+  npcAnimator: {fileID: 4671366589441803173}
+  animatorControllerMain:
+  - {fileID: 9100000, guid: 107a2335e7fc24077a3fc593a9438e6d, type: 2}
+  - {fileID: 9100000, guid: cbb7484526db74624a4cf86b6ef7c80f, type: 2}
+  npcSprites:
+  - {fileID: -8600400806949225841, guid: e61b0f04870994dbfa225da6e036e537, type: 3}
+  - {fileID: -3191845604072070215, guid: e61b0f04870994dbfa225da6e036e537, type: 3}
+  spriteRenderer: {fileID: 0}
 --- !u!70 &7589666894454199316
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -167,7 +173,7 @@ Animator:
   m_GameObject: {fileID: 2293125751689060421}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cbb7484526db74624a4cf86b6ef7c80f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

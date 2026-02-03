@@ -28,11 +28,20 @@ public class NPCMedicalScript : MonoBehaviour
 
 
     //Animators
-    public Animator[] animotors;
+    public Animator npcAnimator;
+    
+    public RuntimeAnimatorController[] animatorControllerMain;
+    
+    public Sprite[] npcSprites;
+    public SpriteRenderer spriteRenderer;
+
+    public int randomIndex;
 
     void Awake()
     {
         craftingSorterScript = GameObject.Find("CraftingButtonManager").GetComponent<CraftingSorterScript>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        chooseNPCAnimation();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -96,4 +105,12 @@ public class NPCMedicalScript : MonoBehaviour
         }
     }
 }
+
+    void chooseNPCAnimation()
+    {
+         randomIndex = Random.Range(0, animatorControllerMain.Length);
+        npcAnimator.runtimeAnimatorController = animatorControllerMain[randomIndex];
+
+        spriteRenderer.sprite = npcSprites[randomIndex];
+    }
 }

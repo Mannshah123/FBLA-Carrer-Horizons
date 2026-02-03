@@ -15,6 +15,10 @@ public class RandomSymptoms : MonoBehaviour
     public GameObject newPanel_dizziness;
     public GameObject newPanel_musclepain;
     public GameObject newPanel_cough;
+
+    public Animator npcAnimator;
+
+    
     void Start()
     {
         
@@ -57,7 +61,8 @@ public class RandomSymptoms : MonoBehaviour
         newNPC.GetComponent<NPCMedicalScript>().symptomDisplayUI_dizziness = newPanel_dizziness;
         newNPC.GetComponent<NPCMedicalScript>().symptomDisplayUI_musclepain = newPanel_musclepain;
         newNPC.GetComponent<NPCMedicalScript>().symptomDisplayUI_cough = newPanel_cough;
-
+        
+        npcAnimator = newNPC.GetComponent<Animator>();
         StartCoroutine(MoveNPC(newNPC));
         }
 
@@ -68,11 +73,14 @@ public class RandomSymptoms : MonoBehaviour
              targetPosition.z = npc.transform.position.z; 
             while (Vector2.Distance(npc.transform.position, targetPosition) > 0.1f)
              {
-       
+                npcAnimator.SetBool("isMoving", true);
+                npcAnimator.SetFloat("Horizontal", -1);
                 npc.transform.position = Vector2.MoveTowards(npc.transform.position, targetPosition, Time.deltaTime * 3f); // Adjust speed here
                yield return null; 
              }
-
+                Debug.Log("NPC reached target position");
+                npcAnimator.SetBool("isMoving", false);
+                   
              Debug.Log("NPC reached the middle of the screen!");
        }
     
