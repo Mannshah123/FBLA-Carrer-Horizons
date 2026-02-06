@@ -18,6 +18,7 @@ public class RandomSymptoms : MonoBehaviour
 
     public Animator npcAnimator;
 
+    public GameObject npcGoalPosition;
     
     void Start()
     {
@@ -63,25 +64,34 @@ public class RandomSymptoms : MonoBehaviour
         newNPC.GetComponent<NPCMedicalScript>().symptomDisplayUI_cough = newPanel_cough;
         
         npcAnimator = newNPC.GetComponent<Animator>();
-        StartCoroutine(MoveNPC(newNPC));
+        StartCoroutine(MoveNPC(newNPC, npcGoalPosition.transform));
         }
 
     }
-       private IEnumerator MoveNPC(GameObject npc){
-            
-             Vector3 targetPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-             targetPosition.z = npc.transform.position.z; 
-            while (Vector2.Distance(npc.transform.position, targetPosition) > 0.1f)
-             {
-                npcAnimator.SetBool("isMoving", true);
-                npcAnimator.SetFloat("Horizontal", -1);
-                npc.transform.position = Vector2.MoveTowards(npc.transform.position, targetPosition, Time.deltaTime * 3f); // Adjust speed here
-               yield return null; 
-             }
-                Debug.Log("NPC reached target position");
-                npcAnimator.SetBool("isMoving", false);
-                   
-             Debug.Log("NPC reached the middle of the screen!");
-       }
+      private IEnumerator MoveNPC(GameObject npc, Transform target)
+{
+    Vector3 targetPosition = target.position;
+    targetPosition.z = npc.transform.position.z;
+
+    while (Vector2.Distance(npc.transform.position, targetPosition) > 0.1f)
+    {
+        npcAnimator.SetBool("isMoving", true);
+
+        // Optional: auto-set direction
+        Vector2 dir = (targetPosition - npc.transform.position).normalized;
+        npcAnimator.SetFloat("Horizontal", -1);
+
+        npc.transform.position = Vector2.MoveTowards(
+            npc.transform.position,
+            targetPosition,
+            Time.deltaTime * 3f
+        );
+
+        yield return null;
+    }
+
+    npcAnimator.SetBool("isMoving", false);
+    Debug.Log("NPC reached target GameObject!");
+}
     
 }

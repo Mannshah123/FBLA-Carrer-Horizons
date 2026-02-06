@@ -38,6 +38,8 @@ public class CraftingSorterScript : MonoBehaviour
     public bool isInventoryEmpty = true;
 
     public Symptons craftedSymptom;
+
+    public GameManager gameManager;
     public void SetAntidote()
     {
        
@@ -111,6 +113,7 @@ public class CraftingSorterScript : MonoBehaviour
             inventoryItem.GetComponent<Image>().sprite = craftedSymptom.icon;
 
              }
+
          }
 
         isInventoryEmpty = false;
@@ -121,6 +124,13 @@ public class CraftingSorterScript : MonoBehaviour
 
 
     
+    }
+
+    public void ClearInventory(){
+        
+        GameObject inventoryItem = inventoryPanel.transform.Find("Item").gameObject;
+        inventoryItem.GetComponent<Image>().sprite = null;
+        isInventoryEmpty = true;
     }
 
 

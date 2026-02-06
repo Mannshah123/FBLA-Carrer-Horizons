@@ -36,11 +36,13 @@ public class NPCMedicalScript : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     public int randomIndex;
+    public GameManager gameManager;
 
     void Awake()
     {
         craftingSorterScript = GameObject.Find("CraftingButtonManager").GetComponent<CraftingSorterScript>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         chooseNPCAnimation();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -80,6 +82,7 @@ public class NPCMedicalScript : MonoBehaviour
 
         if(isTreated)
         {
+            gameManager.NPCFinished();
             Destroy(gameObject);
         }
     }
@@ -98,6 +101,7 @@ public class NPCMedicalScript : MonoBehaviour
         {
             Debug.Log("NPC Treated Successfully!");
             isTreated = true;
+            gameManager.NPCTreated(true);
         }
         else
         {
