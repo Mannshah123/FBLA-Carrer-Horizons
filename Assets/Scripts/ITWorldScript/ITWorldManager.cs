@@ -5,6 +5,8 @@ public class ITWorldManager : MonoBehaviour
     public GameObject[] workers;
 
     private bool isWorkerSelected = false;
+
+    public GameObject exclaimationPointPrefab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +22,7 @@ public class ITWorldManager : MonoBehaviour
         //access special method from the workers after this point
         if(!isWorkerSelected){
             workers[randWorker].GetComponent<SpriteRenderer>().color = Color.red;
+            Instantiate(exclaimationPointPrefab, workers[randWorker].transform.position + new Vector3(0, 1, 0), Quaternion.identity);
             isWorkerSelected = true;
         }
        
