@@ -8,6 +8,7 @@ TagManager:
   - Recipe
   - SyringeRecipe
   - MixRecipe
+  - Worker
   layers:
   - Default
   - TransparentFX
